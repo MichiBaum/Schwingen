@@ -1,12 +1,8 @@
-package com.michibaum.schwingen.service;
+package com.michibaum.schwingen.schwingFest;
 
-import com.michibaum.schwingen.dto.SchwingFestDto;
-import com.michibaum.schwingen.entity.SchwingFest;
-import com.michibaum.schwingen.repository.SchwingFestRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -20,7 +16,7 @@ public class SchwingFestService {
     }
 
     public SchwingFest create(SchwingFestDto schwingFestDto) {
-        return schwingFestRepository.save(new SchwingFest(schwingFestDto.name, new ArrayList<>(), new ArrayList<>()));
+        return schwingFestRepository.save(new SchwingFest(schwingFestDto));
     }
 
     public void delete(SchwingFest schwingFest) {

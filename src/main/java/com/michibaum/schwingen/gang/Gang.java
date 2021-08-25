@@ -1,5 +1,7 @@
-package com.michibaum.schwingen.entity;
+package com.michibaum.schwingen.gang;
 
+import com.michibaum.schwingen.core.entity.BaseEntity;
+import com.michibaum.schwingen.paarung.Paarung;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,9 +18,9 @@ import java.util.List;
 @Table
 public class Gang extends BaseEntity {
 
-    public GangZahl gangZahl;
+    private GangZahl gangZahl;
 
     @ManyToMany
-    public List<Paarung> paarungen;
+    private List<Paarung> paarungen;
 
 }

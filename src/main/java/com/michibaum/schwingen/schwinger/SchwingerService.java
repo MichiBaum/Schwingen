@@ -1,13 +1,12 @@
-package com.michibaum.schwingen.service;
+package com.michibaum.schwingen.schwinger;
 
-import com.michibaum.schwingen.dto.SchwingerDto;
-import com.michibaum.schwingen.entity.Schwinger;
-import com.michibaum.schwingen.repository.SchwingerRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @RequiredArgsConstructor
+@Service
 public class SchwingerService {
 
     private final SchwingerRepository schwingerRepository;
@@ -17,7 +16,7 @@ public class SchwingerService {
     }
 
     public Schwinger create(SchwingerDto schwingerDto) {
-        return schwingerRepository.save(new Schwinger(schwingerDto.firstName, schwingerDto.lastName));
+        return schwingerRepository.save(new Schwinger(schwingerDto));
     }
 
     public void delete(Schwinger schwinger) {

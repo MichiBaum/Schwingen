@@ -1,9 +1,5 @@
-package com.michibaum.schwingen.RestController;
+package com.michibaum.schwingen.schwingFest;
 
-import com.michibaum.schwingen.dto.SchwingFestDto;
-import com.michibaum.schwingen.entity.SchwingFest;
-import com.michibaum.schwingen.service.SchwingFestService;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,7 +7,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-public class SchwingFestRestController {
+class SchwingFestRestController {
 
     private final SchwingFestService schwingFestService;
 

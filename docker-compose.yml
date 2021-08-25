@@ -5,12 +5,12 @@ services:
     image: mysql:8.0.26
     restart: always
     ports:
-    - 3306:3306
+    - 3307:3306
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: schwingen
   api:
-    image: 70131370/schwingen:0.0.1-SNAPSHOT
+    image: 70131370/schwingen:1.0.0-SNAPSHOT
     restart: always
     ports:
       - 8080:8080

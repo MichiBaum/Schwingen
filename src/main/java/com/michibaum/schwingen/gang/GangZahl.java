@@ -1,4 +1,4 @@
-package com.michibaum.schwingen.entity;
+package com.michibaum.schwingen.gang;
 
 public enum GangZahl {
     GANG_1,

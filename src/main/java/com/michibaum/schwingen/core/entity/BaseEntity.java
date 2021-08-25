@@ -1,4 +1,4 @@
-package com.michibaum.schwingen.entity;
+package com.michibaum.schwingen.core.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

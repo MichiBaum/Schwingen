@@ -1,10 +1,5 @@
-package com.michibaum.schwingen.RestController;
+package com.michibaum.schwingen.schwinger;
 
-import com.michibaum.schwingen.dto.SchwingFestDto;
-import com.michibaum.schwingen.dto.SchwingerDto;
-import com.michibaum.schwingen.entity.SchwingFest;
-import com.michibaum.schwingen.entity.Schwinger;
-import com.michibaum.schwingen.service.SchwingerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +7,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-public class SchwingerRestController {
+class SchwingerRestController {
 
     public final SchwingerService schwingerService;
 
