@@ -23,4 +23,7 @@ public class SchwingerService {
         schwingerRepository.delete(schwinger);
     }
 
+    public List<Schwinger> getAllWithId(List<Long> schwingerIds){
+        return schwingerRepository.findAllById(schwingerIds);
+    }
 }

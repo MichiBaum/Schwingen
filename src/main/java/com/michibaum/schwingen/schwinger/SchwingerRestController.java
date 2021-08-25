@@ -9,7 +9,7 @@ import java.util.List;
 @RequiredArgsConstructor
 class SchwingerRestController {
 
-    public final SchwingerService schwingerService;
+    private final SchwingerService schwingerService;
 
     @GetMapping("/schwinger")
     public List<Schwinger> getAllSchwinger(){
@@ -22,7 +22,7 @@ class SchwingerRestController {
     }
 
     @PostMapping("/schwinger")
-    public Schwinger createSchwingfest(SchwingerDto schwingerDto){
+    public Schwinger createSchwinger(SchwingerDto schwingerDto){
         return schwingerService.create(schwingerDto);
     }
 

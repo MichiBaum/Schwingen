@@ -1,5 +1,7 @@
 package com.michibaum.schwingen.schwingFest;
 
+import com.michibaum.schwingen.schwinger.Schwinger;
+import com.michibaum.schwingen.schwinger.SchwingerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,6 +12,7 @@ import java.util.List;
 class SchwingFestRestController {
 
     private final SchwingFestService schwingFestService;
+    private final SchwingerService schwingerService;
 
     @GetMapping("/schwingfests")
     public List<SchwingFest> getAllSchwingfeste(){
@@ -29,6 +32,13 @@ class SchwingFestRestController {
     @DeleteMapping ("/schwingfests/{id}")
     public void deleteSchwingfest(@RequestParam("id") SchwingFest schwingFest){
         schwingFestService.delete(schwingFest);
+    }
+
+    @PostMapping("/schwingfests/{id}/invite")
+    public SchwingFest schwingfestInvite(@RequestParam("id") SchwingFest schwingFest, @RequestBody() List<Long> schwingerIds){
+        List<Schwinger> schwinger = schwingerService.getAllWithId(schwingerIds);
+        schwingFest.addAll(schwinger);
+        return schwingFestService.save(schwingFest);
     }
 
 }

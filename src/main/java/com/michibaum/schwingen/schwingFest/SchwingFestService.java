@@ -9,7 +9,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class SchwingFestService {
 
-    public static SchwingFestRepository schwingFestRepository;
+    private final SchwingFestRepository schwingFestRepository;
 
     public List<SchwingFest> getAll(){
         return schwingFestRepository.findAll();
@@ -21,5 +21,9 @@ public class SchwingFestService {
 
     public void delete(SchwingFest schwingFest) {
         schwingFestRepository.delete(schwingFest);
+    }
+
+    public SchwingFest save(SchwingFest schwingFest) {
+        return schwingFestRepository.save(schwingFest);
     }
 }
