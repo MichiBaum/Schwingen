@@ -8,10 +8,12 @@
 		<version>2.5.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+
 	<groupId>com.michibaum</groupId>
 	<artifactId>schwingen</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<name>schwingen</name>
+	<packaging>pom</packaging>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -23,101 +25,8 @@
 		<dockerHub.url>https://registry.hub.docker.com</dockerHub.url>
 	</properties>
 
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-ui -->
-		<dependency>
-			<groupId>org.springdoc</groupId>
-			<artifactId>springdoc-openapi-ui</artifactId>
-			<version>1.5.10</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springdoc</groupId>
-			<artifactId>springdoc-openapi-data-rest</artifactId>
-			<version>1.5.10</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-configuration-processor</artifactId>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
-
-	<build>
-		<sourceDirectory>src/main/java</sourceDirectory>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<layers>
-						<enabled>true</enabled>
-					</layers>
-					<additionalProperties>
-						<time>${maven.build.timestamp}</time>
-					</additionalProperties>
-					<excludeDevtools>true</excludeDevtools>
-					<optimizedLaunch>true</optimizedLaunch>
-					<image>
-						<name>registry.hub.docker.com/${dockerHub.username}/${project.artifactId}:${project.version}</name>
-						<publish>true</publish>
-					</image>
-					<docker>
-						<publishRegistry>
-							<username>${dockerHub.username}</username>
-							<password>${dockerHub.password}</password>
-							<url>${dockerHub.url}</url>
-						</publishRegistry>
-					</docker>
-				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>build-info</goal>
-							<goal>build-image</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>pl.project13.maven</groupId>
-				<artifactId>git-commit-id-plugin</artifactId>
-				<configuration>
-					<failOnNoGitDirectory>false</failOnNoGitDirectory>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+	<modules>
+		<module>api</module>
+	</modules>
 
 </project>
